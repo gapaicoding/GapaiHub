@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# Website masih dalam tahap pengembangan atau review.
+# Aktifkan indexing melalui VITE_ALLOW_INDEXING=true.

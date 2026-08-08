@@ -1,0 +1,290 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/*
+ * Gapai Mentorship design system.
+ * Parent identity: purple, deep plum, lavender, and warm yellow.
+ * Child-brand colors are scoped through data-accent.
+ */
+
+@theme inline {
+  --font-sans:
+    "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-surface: var(--surface);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-selected: var(--surface-selected);
+
+  --color-card: var(--surface);
+  --color-card-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-ink: var(--foreground);
+  --color-ink-secondary: var(--text-secondary);
+  --color-ink-muted: var(--text-muted);
+  --color-inverse: var(--text-inverse);
+
+  --color-border: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+  --color-ring: var(--focus-ring);
+
+  --color-highlight: var(--highlight-bg);
+  --color-highlight-ink: var(--highlight-ink);
+
+  --color-deep: var(--deep);
+  --color-deep-soft: var(--deep-soft);
+
+  --color-brand-purple: var(--gapai-purple-600);
+  --color-brand-lavender: var(--gapai-purple-100);
+  --color-brand-cyan: var(--gapai-blue-500);
+  --color-brand-sky: var(--gapai-blue-300);
+  --color-brand-yellow: var(--gapai-yellow-300);
+
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+
+  --shadow-soft:
+    0 1px 2px oklab(0.25 0.02 -0.08 / 0.04),
+    0 12px 28px -16px oklab(0.25 0.06 -0.1 / 0.18);
+
+  --shadow-raised:
+    0 4px 10px oklab(0.25 0.04 -0.08 / 0.06),
+    0 28px 52px -26px oklab(0.22 0.08 -0.12 / 0.3);
+
+  --shadow-float: 0 40px 80px -38px oklab(0.18 0.1 -0.14 / 0.48);
+
+  --ease-gapai: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Gapai purple */
+  --gapai-purple-50: #faf6ff;
+  --gapai-purple-100: #f1e5ff;
+  --gapai-purple-200: #e3ccff;
+  --gapai-purple-300: #cca3ff;
+  --gapai-purple-400: #ae70f4;
+  --gapai-purple-500: #9145e2;
+  --gapai-purple-600: #7526ca;
+  --gapai-purple-700: #611dad;
+  --gapai-purple-800: #4d1989;
+  --gapai-purple-900: #3e176b;
+  --gapai-purple-950: #251039;
+
+  /* Supporting blue */
+  --gapai-blue-50: #f0f7fe;
+  --gapai-blue-100: #dceffc;
+  --gapai-blue-200: #b9dff8;
+  --gapai-blue-300: #86c9f0;
+  --gapai-blue-400: #4faee3;
+  --gapai-blue-500: #2c94cf;
+  --gapai-blue-600: #2f76d3;
+  --gapai-blue-700: #1f5fb8;
+  --gapai-blue-800: #174e94;
+  --gapai-blue-900: #0f3f75;
+  --gapai-blue-950: #0a284a;
+
+  /* Gapai yellow */
+  --gapai-yellow-50: #fffdf0;
+  --gapai-yellow-100: #fff7c2;
+  --gapai-yellow-200: #ffed82;
+  --gapai-yellow-300: #f8d542;
+  --gapai-yellow-400: #eabd21;
+  --gapai-yellow-800: #786000;
+
+  /* Semantic */
+  --background: #fbfaff;
+  --surface: #ffffff;
+  --surface-subtle: var(--gapai-purple-50);
+  --surface-selected: var(--gapai-purple-100);
+
+  --foreground: #21182f;
+  --text-secondary: #655d72;
+  --text-muted: #7a7287;
+  --text-inverse: #ffffff;
+
+  --border-subtle: #e5dfee;
+  --border-strong: #cfc4dc;
+
+  --primary: var(--gapai-purple-600);
+  --primary-hover: var(--gapai-purple-700);
+  --primary-active: var(--gapai-purple-800);
+  --primary-foreground: #ffffff;
+
+  --focus-ring: var(--gapai-purple-500);
+
+  --highlight-bg: var(--gapai-yellow-100);
+  --highlight-ink: var(--gapai-yellow-800);
+
+  --deep: var(--gapai-purple-950);
+  --deep-soft: var(--gapai-purple-900);
+
+  /* Default ecosystem accent */
+  --accent: var(--gapai-purple-500);
+  --accent-strong: var(--gapai-purple-700);
+  --accent-soft: var(--gapai-purple-50);
+  --accent-ink: var(--gapai-purple-800);
+}
+
+[data-accent="brilia"] {
+  --accent: #2c94cf;
+  --accent-strong: #1f5fb8;
+  --accent-soft: #eaf6fd;
+  --accent-ink: #174e94;
+}
+
+[data-accent="joytalk"] {
+  --accent: #ed9a13;
+  --accent-strong: #75609e;
+  --accent-soft: #fff7d6;
+  --accent-ink: #5f4300;
+}
+
+[data-accent="kidspro"] {
+  --accent: #bd21ac;
+  --accent-strong: #8c187f;
+  --accent-soft: #fcecf9;
+  --accent-ink: #6d115f;
+}
+
+[data-accent="els"] {
+  --accent: #f7a201;
+  --accent-strong: #22515a;
+  --accent-soft: #eef6f7;
+  --accent-ink: #22515a;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--border-subtle);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  img,
+  svg {
+    display: block;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    background: var(--gapai-purple-200);
+    color: var(--gapai-purple-950);
+  }
+
+  :focus-visible {
+    border-radius: 6px;
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+}
+
+@utility surface-glass {
+  background-color: color-mix(in oklab, var(--surface) 82%, transparent);
+  border-color: color-mix(in oklab, var(--border-subtle) 82%, transparent);
+  backdrop-filter: saturate(165%) blur(18px);
+}
+
+@utility text-balance-heading {
+  text-wrap: balance;
+}
+
+@keyframes gapai-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gapai-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes gapai-pulse-soft {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.72;
+    transform: scale(1.04);
+  }
+}
+
+@utility animate-rise {
+  animation: gapai-rise 680ms var(--ease-gapai) both;
+}
+
+@utility animate-float-soft {
+  animation: gapai-float 6s ease-in-out infinite;
+}
+
+@utility animate-pulse-soft {
+  animation: gapai-pulse-soft 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
