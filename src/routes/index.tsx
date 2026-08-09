@@ -3,7 +3,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { BrandCards } from "@/components/sections/brand-cards";
 import { ConsultationJourney } from "@/components/sections/consultation-journey";
 import { Faq } from "@/components/sections/faq";
-import { FinalCta } from "@/components/sections/final-cta";
 import { Hero } from "@/components/sections/hero";
 import { ProgramFinder } from "@/components/sections/program-finder";
 import { TrustSnapshot } from "@/components/sections/trust-snapshot";
@@ -64,7 +63,6 @@ function Index() {
       <WhyGapai />
       <ConsultationJourney />
       <Faq />
-      <FinalCta />
     </>
   );
 }
