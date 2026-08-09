@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, type MouseEvent } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowRight, ChevronDown, Menu, Sparkles, X } from "lucide-react";
 
@@ -144,6 +144,24 @@ export function SiteHeader() {
     });
   };
 
+  const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (pathname !== "/") return;
+
+    event.preventDefault();
+    setMobileOpen(false);
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    window.requestAnimationFrame(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: reduceMotion ? "auto" : "smooth",
+      });
+    });
+  };
+
   return (
     <>
       <header
@@ -158,6 +176,7 @@ export function SiteHeader() {
         <div className="mx-auto flex h-[4.75rem] w-full max-w-[1240px] items-center gap-4 px-5 sm:px-8">
           <Link
             to="/"
+            onClick={handleLogoClick}
             aria-label="Gapai Mentorship, kembali ke beranda"
             className="group shrink-0 rounded-2xl outline-none focus-visible:ring-3 focus-visible:ring-ring/35 focus-visible:ring-offset-3"
           >
@@ -335,6 +354,7 @@ export function SiteHeader() {
                 <div className="flex min-w-0 items-center gap-3">
                   <Link
                     to="/"
+                    onClick={handleLogoClick}
                     aria-label="Gapai Mentorship, kembali ke beranda"
                     className="min-w-0 shrink rounded-2xl outline-none focus-visible:ring-3 focus-visible:ring-ring/35"
                   >
