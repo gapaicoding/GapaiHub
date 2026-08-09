@@ -1,24 +1,30 @@
-const LOCAL_SITE_URL = "http://localhost:3000";
+const PRODUCTION_SITE_URL = "https://gapaihub.vercel.app";
 
 function normalizeSiteUrl(value: string | undefined): string {
-  const candidate = value?.trim() || LOCAL_SITE_URL;
+  const candidate = value?.trim() || PRODUCTION_SITE_URL;
 
   try {
     return new URL(candidate).origin;
   } catch {
-    console.warn(`[SEO] VITE_SITE_URL tidak valid: "${candidate}". Menggunakan ${LOCAL_SITE_URL}.`);
+    console.warn(
+      `[SEO] VITE_SITE_URL tidak valid: "${candidate}". Menggunakan ${PRODUCTION_SITE_URL}.`,
+    );
 
-    return LOCAL_SITE_URL;
+    return PRODUCTION_SITE_URL;
   }
 }
 
-export const SITE_URL = normalizeSiteUrl(import.meta.env.VITE_SITE_URL);
+export const SITE_URL = normalizeSiteUrl(
+  import.meta.env["VITE_SITE_URL"],
+);
 
-export const ALLOW_INDEXING = import.meta.env.VITE_ALLOW_INDEXING === "true";
+export const ALLOW_INDEXING =
+  import.meta.env["VITE_ALLOW_INDEXING"] === "true";
 
 export const SITE_NAME = "Gapai Mentorship";
 
-export const DEFAULT_TITLE = "Gapai Mentorship | Ekosistem Pendidikan Anak";
+export const DEFAULT_TITLE =
+  "Gapai Mentorship | Ekosistem Pendidikan Anak";
 
 export const DEFAULT_DESCRIPTION =
   "Temukan program yang sesuai kebutuhan anak melalui empat brand spesialis Gapai Mentorship: Brilia, Joytalk English, Kidspro ID, dan ELS School.";
@@ -55,7 +61,9 @@ export function buildSeoHead({
 
   return {
     meta: [
-      { title },
+      {
+        title,
+      },
       {
         name: "description",
         content: description,
@@ -97,6 +105,14 @@ export function buildSeoHead({
         content: imageUrl,
       },
       {
+        property: "og:image:secure_url",
+        content: imageUrl,
+      },
+      {
+        property: "og:image:type",
+        content: "image/jpeg",
+      },
+      {
         property: "og:image:width",
         content: "1200",
       },
@@ -123,6 +139,10 @@ export function buildSeoHead({
       {
         name: "twitter:image",
         content: imageUrl,
+      },
+      {
+        name: "twitter:image:alt",
+        content: `${SITE_NAME} — ekosistem pendidikan anak`,
       },
     ],
     links: [
