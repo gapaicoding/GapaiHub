@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+
 import { BrandCards } from "@/components/sections/brand-cards";
 import { ConsultationJourney } from "@/components/sections/consultation-journey";
 import { Faq } from "@/components/sections/faq";
@@ -7,13 +8,13 @@ import { Hero } from "@/components/sections/hero";
 import { ProgramFinder } from "@/components/sections/program-finder";
 import { TrustSnapshot } from "@/components/sections/trust-snapshot";
 import { WhyGapai } from "@/components/sections/why-gapai";
-import { faqs } from "@/content/site";
 import { absoluteUrl, buildSeoHead } from "@/config/seo";
+import { faqs } from "@/content/site";
 
-const title = "Gapai Mentorship | Ekosistem Pendidikan Anak";
+const title = "GapaiHub";
 
 const description =
-  "Temukan program yang sesuai kebutuhan anak melalui empat brand spesialis Gapai Mentorship: Brilia, Joytalk English, Kidspro ID, dan ELS School. Mulai dari konsultasi.";
+  "Temukan program yang sesuai kebutuhan anak melalui empat brand spesialis GapaiHub: Brilia, Joytalk English, Kidspro ID, dan ELS School. Mulai dari konsultasi.";
 
 export const Route = createFileRoute("/")({
   head: () => {
