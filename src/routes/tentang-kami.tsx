@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageShell } from "@/components/page-shell";
+
+import { AboutPage } from "@/components/about/about-page";
 import { buildSeoHead } from "@/config/seo";
 
-const title = "Tentang Kami | Gapai Mentorship";
+const title = "Tentang Gapai Mentorship | Ekosistem Pendidikan Anak";
 
 const description =
-  "Kenali Gapai Mentorship, ekosistem pendidikan anak yang menaungi Brilia, Joytalk English, Kidspro ID, dan ELS School.";
+  "Kenali PT Gapai Cita Rahardjo dan Gapai Mentorship, ekosistem pendidikan yang menaungi Brilia, Joytalk English, Kidspro ID, dan ELS School.";
 
 export const Route = createFileRoute("/tentang-kami")({
   head: () =>
@@ -16,15 +17,3 @@ export const Route = createFileRoute("/tentang-kami")({
     }),
   component: AboutPage,
 });
-
-function AboutPage() {
-  return (
-    <PageShell
-      eyebrow="Tentang kami"
-      title="Satu ekosistem untuk kebutuhan tumbuh anak"
-      description={description}
-      topic="Gapai Mentorship"
-      channel="gapai"
-    />
-  );
-}
