@@ -68,9 +68,6 @@ export function ProgramFinder() {
         <div className="grid items-end gap-7 lg:grid-cols-[1fr_0.62fr]">
           <div>
             <p className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.12em] text-primary uppercase">
-              <span className="grid size-9 place-items-center rounded-2xl border border-primary/15 bg-surface shadow-[var(--shadow-soft)]">
-                01
-              </span>
 
               Program finder
             </p>

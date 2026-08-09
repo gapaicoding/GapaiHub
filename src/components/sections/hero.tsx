@@ -3,14 +3,14 @@ import { ArrowRight, Compass, Sparkles } from "lucide-react";
 
 import { ConsultationCta } from "@/components/consultation-cta";
 import { ActionAnchor } from "@/components/ui/action";
-import { brandById, brands, type Brand } from "@/content/brands";
+import { brandById, type Brand } from "@/content/brands";
 import { cn } from "@/lib/utils";
 
 export function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative isolate overflow-hidden bg-background py-10 sm:py-14 lg:flex lg:min-h-[calc(100svh-4.75rem)] lg:items-center lg:py-10"
+      className="relative isolate overflow-hidden bg-background py-10 sm:py-14 lg:flex lg:min-h-[calc(100svh-5rem)] lg:items-center lg:py-10"
     >
       <HeroBackground />
 
@@ -61,36 +61,6 @@ export function Hero() {
               size="lg"
               className="w-full sm:w-auto"
             />
-          </div>
-
-          <div className="mt-8 border-t border-border/80 pt-5">
-            <p className="text-xs font-bold tracking-[0.14em] text-ink-muted uppercase">
-              Empat ruang tumbuh dalam satu ekosistem
-            </p>
-
-            <ul className="mt-3 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
-              {brands.map((brand) => (
-                <li
-                  key={brand.id}
-                  data-accent={brand.id}
-                  className="group flex min-w-0 items-center gap-2.5 rounded-2xl border border-accent/20 bg-surface/75 px-3 py-2.5 shadow-[var(--shadow-soft)] backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/45"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="size-2.5 shrink-0 rounded-full bg-accent shadow-[0_0_0_4px_var(--accent-soft)]"
-                  />
-
-                  <span className="min-w-0">
-                    <span className="block truncate text-xs font-bold text-ink">
-                      {brand.name}
-                    </span>
-                    <span className="block text-[0.68rem] font-semibold text-accent-ink">
-                      {brand.verb}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
 
@@ -145,25 +115,21 @@ function HeroVisual() {
           <BrandLogoCard
             brand={brandById.els}
             priority
-            number="04"
             className="col-start-1 col-span-7 row-start-1 row-span-7 z-10"
           />
 
           <BrandLogoCard
             brand={brandById.joytalk}
-            number="02"
             className="col-start-8 col-span-5 row-start-1 row-span-5 z-20 translate-y-2"
           />
 
           <BrandLogoCard
             brand={brandById.brilia}
-            number="01"
             className="col-start-1 col-span-5 row-start-8 row-span-5 z-20 -translate-y-1"
           />
 
           <BrandLogoCard
             brand={brandById.kidspro}
-            number="03"
             className="col-start-6 col-span-7 row-start-6 row-span-7 z-20"
           />
         </div>
@@ -199,14 +165,12 @@ function HeroVisual() {
 
 type BrandLogoCardProps = {
   brand: Brand;
-  number: string;
   className?: string;
   priority?: boolean;
 };
 
 function BrandLogoCard({
   brand,
-  number,
   className,
   priority = false,
 }: BrandLogoCardProps) {
@@ -237,10 +201,6 @@ function BrandLogoCard({
         aria-hidden="true"
         className="absolute -bottom-[28%] -left-[20%] size-[65%] rounded-full bg-accent/10 blur-2xl"
       />
-
-      <span className="absolute right-3 top-3 z-10 text-[0.6rem] font-extrabold tracking-[0.14em] text-accent/45 sm:right-4 sm:top-4 sm:text-[0.68rem]">
-        {number}
-      </span>
 
       <div className="absolute inset-x-3 bottom-[3.5rem] top-5 flex items-center justify-center sm:inset-x-5 sm:bottom-[4.15rem] sm:top-7">
         <img
