@@ -1,9 +1,9 @@
+import { Link } from "@tanstack/react-router";
 import { ArrowRight, Compass, Sparkles } from "lucide-react";
 
 import { ConsultationCta } from "@/components/consultation-cta";
 import { ActionAnchor } from "@/components/ui/action";
-import { brandById, brands } from "@/content/brands";
-import type { Brand } from "@/content/brands";
+import { brandById, brands, type Brand } from "@/content/brands";
 import { cn } from "@/lib/utils";
 
 export function Hero() {
@@ -28,12 +28,15 @@ export function Hero() {
             className="mt-6 max-w-3xl text-4xl leading-[1.04] font-extrabold tracking-[-0.052em] text-balance-heading text-ink sm:text-5xl lg:text-[3.7rem] xl:text-[4.15rem]"
           >
             Arah yang tepat
-            <span className="mt-1 block text-primary">untuk setiap potensi anak.</span>
+            <span className="mt-1 block text-primary">
+              untuk setiap potensi anak.
+            </span>
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-secondary sm:text-lg lg:text-xl">
-            Gapai Mentorship menyatukan empat brand spesialis untuk membantu orang tua memahami
-            kebutuhan anak dan menemukan pendampingan yang paling relevan.
+            Gapai Mentorship menyatukan empat brand spesialis untuk membantu
+            orang tua memahami kebutuhan anak dan menemukan pendampingan yang
+            paling relevan.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -78,8 +81,9 @@ export function Hero() {
                   />
 
                   <span className="min-w-0">
-                    <span className="block truncate text-xs font-bold text-ink">{brand.name}</span>
-
+                    <span className="block truncate text-xs font-bold text-ink">
+                      {brand.name}
+                    </span>
                     <span className="block text-[0.68rem] font-semibold text-accent-ink">
                       {brand.verb}
                     </span>
@@ -100,19 +104,16 @@ export function Hero() {
 
 function HeroBackground() {
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 -z-10"
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-brand-lavender/45" />
-
       <div className="animate-pulse-soft absolute -left-40 top-8 size-[30rem] rounded-full bg-brand-sky/18 blur-3xl" />
-
       <div className="animate-pulse-soft absolute -right-40 -top-32 size-[34rem] rounded-full bg-primary/14 blur-3xl [animation-delay:900ms]" />
-
       <div className="absolute -bottom-48 left-1/3 size-96 rounded-full bg-brand-yellow/16 blur-3xl" />
-
       <div className="absolute left-[6%] top-[18%] hidden h-px w-32 rotate-[-12deg] bg-gradient-to-r from-transparent via-primary/20 to-transparent lg:block" />
-
       <div className="absolute bottom-[15%] right-[4%] hidden h-px w-40 rotate-[18deg] bg-gradient-to-r from-transparent via-brand-yellow/50 to-transparent lg:block" />
-
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
     </div>
   );
@@ -125,12 +126,10 @@ function HeroVisual() {
         aria-hidden="true"
         className="absolute -inset-6 -z-10 rounded-[3.5rem] bg-gradient-to-br from-primary/10 via-brand-lavender/30 to-brand-yellow/15 blur-2xl"
       />
-
       <div
         aria-hidden="true"
         className="absolute -right-8 top-4 -z-10 size-28 rounded-full border border-primary/15"
       />
-
       <div
         aria-hidden="true"
         className="absolute -bottom-6 -left-7 -z-10 size-32 rounded-full bg-brand-yellow/25"
@@ -143,32 +142,35 @@ function HeroVisual() {
         />
 
         <div className="relative grid size-full grid-cols-12 grid-rows-12 gap-2.5 sm:gap-3">
-          <BrandVisualCard
+          <BrandLogoCard
             brand={brandById.els}
             priority
+            number="04"
             className="col-start-1 col-span-7 row-start-1 row-span-7 z-10"
           />
 
-          <BrandVisualCard
+          <BrandLogoCard
             brand={brandById.joytalk}
+            number="02"
             className="col-start-8 col-span-5 row-start-1 row-span-5 z-20 translate-y-2"
           />
 
-          <BrandVisualCard
+          <BrandLogoCard
             brand={brandById.brilia}
+            number="01"
             className="col-start-1 col-span-5 row-start-8 row-span-5 z-20 -translate-y-1"
           />
 
-          <BrandVisualCard
+          <BrandLogoCard
             brand={brandById.kidspro}
+            number="03"
             className="col-start-6 col-span-7 row-start-6 row-span-7 z-20"
           />
         </div>
 
-        <div className="absolute left-[53%] top-[53%] z-30 hidden size-24 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[5px] border-background bg-deep text-center text-white shadow-[var(--shadow-raised)] sm:grid">
+        <div className="pointer-events-none absolute left-[53%] top-[53%] z-30 hidden size-24 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[5px] border-background bg-deep text-center text-white shadow-[var(--shadow-raised)] sm:grid">
           <div>
-            <span className="block text-xl font-extrabold leading-none">4</span>
-
+            <span className="block text-xl leading-none font-extrabold">4</span>
             <span className="mt-1 block text-[0.58rem] leading-tight font-bold tracking-wide text-white/65 uppercase">
               Brand
               <br />
@@ -183,7 +185,6 @@ function HeroVisual() {
           aria-hidden="true"
           className="mt-1 size-2.5 shrink-0 rounded-full bg-primary shadow-[0_0_0_5px_var(--gapai-purple-100)]"
         />
-
         <p className="text-xs leading-relaxed text-ink-secondary sm:text-sm">
           Satu ekosistem untuk anak{" "}
           <span className="font-bold text-ink">
@@ -196,63 +197,93 @@ function HeroVisual() {
   );
 }
 
-type BrandVisualCardProps = {
+type BrandLogoCardProps = {
   brand: Brand;
+  number: string;
   className?: string;
   priority?: boolean;
 };
 
-function BrandVisualCard({ brand, className, priority = false }: BrandVisualCardProps) {
+function BrandLogoCard({
+  brand,
+  number,
+  className,
+  priority = false,
+}: BrandLogoCardProps) {
   return (
-    <article
+    <Link
+      to={brand.href}
       data-accent={brand.id}
+      aria-label={`Lihat program ${brand.name}`}
       className={cn(
         "group relative min-h-0 min-w-0 overflow-hidden",
-        "rounded-[1.4rem] border-[3px] border-surface bg-accent-soft",
-        "shadow-[var(--shadow-raised)]",
+        "rounded-[1.4rem] border-[3px] border-surface bg-surface",
+        "shadow-[var(--shadow-raised)] outline-none",
         "transition-all duration-500 ease-[var(--ease-gapai)]",
-        "hover:z-40 hover:-translate-y-1 hover:shadow-[var(--shadow-float)]",
+        "hover:z-40 hover:-translate-y-1 hover:border-accent/25 hover:shadow-[var(--shadow-float)]",
+        "focus-visible:z-40 focus-visible:ring-3 focus-visible:ring-accent/35",
         "sm:rounded-[1.75rem]",
         className,
       )}
     >
-      <img
-        src={brand.image.src}
-        alt={brand.image.alt}
-        width={brand.image.width}
-        height={brand.image.height}
-        loading={priority ? "eager" : "lazy"}
-        fetchPriority={priority ? "high" : "auto"}
-        decoding="async"
-        sizes="(min-width: 1024px) 28vw, (min-width: 640px) 45vw, 70vw"
-        style={{
-          objectPosition: brand.image.objectPosition ?? "center",
-        }}
-        className="size-full object-cover transition-transform duration-700 ease-[var(--ease-gapai)] group-hover:scale-[1.045]"
+      <div className="absolute inset-0 bg-gradient-to-br from-surface via-accent-soft/70 to-surface" />
+
+      <div
+        aria-hidden="true"
+        className="absolute -right-[18%] -top-[24%] size-[70%] rounded-full border border-accent/15 bg-accent/5 transition-transform duration-700 group-hover:scale-110"
       />
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-deep/85 via-deep/5 to-transparent"
+        className="absolute -bottom-[28%] -left-[20%] size-[65%] rounded-full bg-accent/10 blur-2xl"
       />
 
-      {brand.image.isTemporary ? (
-        <span className="absolute right-2.5 top-2.5 rounded-full border border-white/20 bg-deep/75 px-2.5 py-1 text-[0.58rem] font-bold text-white backdrop-blur-sm sm:text-[0.65rem]">
-          Ilustrasi sementara
-        </span>
-      ) : null}
+      <span className="absolute right-3 top-3 z-10 text-[0.6rem] font-extrabold tracking-[0.14em] text-accent/45 sm:right-4 sm:top-4 sm:text-[0.68rem]">
+        {number}
+      </span>
 
-      <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
-        <div className="flex items-center gap-2">
-          <span aria-hidden="true" className="size-2 shrink-0 rounded-full bg-accent" />
-
-          <p className="truncate text-xs font-extrabold text-white sm:text-sm">{brand.name}</p>
-        </div>
-
-        <p className="mt-0.5 hidden truncate pl-4 text-[0.65rem] font-semibold text-white/65 sm:block">
-          {brand.verb}
-        </p>
+      <div className="absolute inset-x-3 bottom-[3.5rem] top-5 flex items-center justify-center sm:inset-x-5 sm:bottom-[4.15rem] sm:top-7">
+        <img
+          src={brand.logo.src}
+          alt={brand.logo.alt}
+          width={brand.logo.width}
+          height={brand.logo.height}
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
+          decoding="async"
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 42vw, 68vw"
+          className={cn(
+            "object-contain transition-transform duration-500 ease-[var(--ease-gapai)] group-hover:scale-[1.045]",
+            brand.logo.layout === "badge" && "size-[76%] max-h-full max-w-full",
+            brand.logo.layout === "landscape" && "h-auto max-h-[82%] w-[88%]",
+            brand.logo.layout === "wide" && "h-auto max-h-[76%] w-[92%]",
+          )}
+        />
       </div>
-    </article>
+
+      <div className="absolute inset-x-0 bottom-0 border-t border-accent/12 bg-surface/88 px-3 py-2.5 backdrop-blur-sm sm:px-4 sm:py-3">
+        <div className="flex items-center justify-between gap-2">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2">
+              <span
+                aria-hidden="true"
+                className="size-2 shrink-0 rounded-full bg-accent"
+              />
+              <p className="truncate text-xs font-extrabold text-ink sm:text-sm">
+                {brand.name}
+              </p>
+            </div>
+            <p className="mt-0.5 hidden truncate pl-4 text-[0.65rem] font-semibold text-accent-ink sm:block">
+              {brand.verb}
+            </p>
+          </div>
+
+          <ArrowRight
+            aria-hidden="true"
+            className="size-3.5 shrink-0 text-accent-ink transition-transform duration-200 group-hover:translate-x-0.5 sm:size-4"
+          />
+        </div>
+      </div>
+    </Link>
   );
 }
