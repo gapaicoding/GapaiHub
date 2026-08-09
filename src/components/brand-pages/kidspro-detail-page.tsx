@@ -1,3 +1,4 @@
+// GAPAI UPDATE: KIDSPRO HERO LOGO — 2026-08-09
 import { useMemo, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import type { LucideIcon } from "lucide-react";
@@ -205,9 +206,9 @@ function KidsproHero() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-secondary sm:text-xl">
-              Kidspro ID membantu anak mengeksplorasi desain, coding,
-              animasi, video, konten, dan AI melalui jalur belajar berbasis
-              project yang sesuai usia.
+              Kidspro ID membantu anak mengeksplorasi desain, coding, animasi,
+              video, konten, dan AI melalui jalur belajar berbasis project yang
+              sesuai usia.
             </p>
 
             <ul className="mt-8 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
@@ -263,35 +264,62 @@ function KidsproHero() {
             />
 
             <figure className="relative overflow-hidden rounded-[2rem] border border-accent/15 bg-surface p-2.5 shadow-[var(--shadow-float)] sm:rounded-[2.5rem] sm:p-3">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-accent-soft sm:rounded-[2rem]">
-                <img
-                  src={brand.image.src}
-                  alt={brand.image.alt}
-                  width={brand.image.width}
-                  height={brand.image.height}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  sizes="(min-width: 1024px) 48vw, 100vw"
-                  style={{
-                    objectPosition: brand.image.objectPosition ?? "center",
-                  }}
-                  className="size-full object-cover"
+              <div className="relative flex min-h-[430px] flex-col overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-surface via-accent-soft/70 to-brand-sky/20 p-6 sm:min-h-[465px] sm:rounded-[2rem] sm:p-8">
+                <div
+                  aria-hidden="true"
+                  className="absolute -right-20 -top-24 size-64 rounded-full border border-accent/15 bg-accent/5"
                 />
 
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-accent-ink/65 via-transparent to-transparent"
+                  className="absolute -bottom-28 -left-20 size-72 rounded-full bg-brand-cyan/15 blur-3xl"
                 />
 
-                <figcaption className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-6">
-                  <p className="text-xs font-bold tracking-[0.14em] text-white/70 uppercase">
-                    Project-based learning
+                <div className="relative flex items-center justify-between gap-4">
+                  <p className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.14em] text-accent-ink uppercase">
+                    <Bot aria-hidden="true" className="size-4" />
+                    Kidspro digital lab
                   </p>
-                  <p className="mt-2 max-w-md text-lg leading-snug font-extrabold sm:text-xl">
-                    Anak belajar teknologi dengan membuat, mencoba, dan
-                    menyelesaikan karya.
-                  </p>
+
+                  <span className="rounded-full border border-accent/15 bg-surface/80 px-3 py-1.5 text-[11px] font-extrabold text-accent-ink shadow-sm">
+                    4–17 tahun
+                  </span>
+                </div>
+
+                <div className="relative flex flex-1 items-center justify-center py-8">
+                  <img
+                    src={brand.logo.src}
+                    alt={brand.logo.alt}
+                    width={brand.logo.width}
+                    height={brand.logo.height}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    sizes="(min-width: 1024px) 48vw, 100vw"
+                    className="h-32 w-full max-w-[26rem] object-contain drop-shadow-[0_20px_30px_rgba(140,24,127,0.14)] sm:h-40"
+                  />
+                </div>
+
+                <figcaption className="relative grid grid-cols-2 gap-2.5">
+                  {kidsproProgramClusters.map((cluster) => {
+                    const Icon = clusterIcons[cluster.id];
+
+                    return (
+                      <a
+                        key={cluster.id}
+                        href="#jalur-kreatif"
+                        className="group flex min-w-0 items-center gap-2.5 rounded-2xl border border-accent/15 bg-surface/85 p-3 shadow-sm transition-all hover:-translate-y-0.5 hover:border-accent/35 hover:bg-surface"
+                      >
+                        <span className="grid size-8 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent-ink transition-colors group-hover:bg-accent-strong group-hover:text-white">
+                          <Icon aria-hidden="true" className="size-4" />
+                        </span>
+
+                        <span className="text-[11px] leading-tight font-extrabold text-ink sm:text-xs">
+                          {cluster.title}
+                        </span>
+                      </a>
+                    );
+                  })}
                 </figcaption>
               </div>
             </figure>
@@ -492,8 +520,7 @@ function KidsproPathFinder() {
     useState<KidsproFrequency | null>(null);
 
   const availablePrograms = useMemo(
-    () =>
-      selectedAge === null ? [] : getKidsproProgramsForAge(selectedAge),
+    () => (selectedAge === null ? [] : getKidsproProgramsForAge(selectedAge)),
     [selectedAge],
   );
 
@@ -565,8 +592,8 @@ function KidsproPathFinder() {
             Temukan jalur belajar digital berdasarkan kebutuhan anak
           </h2>
           <p className="mt-5 text-base leading-relaxed text-ink-secondary sm:text-lg">
-            Jawab tiga pilihan sederhana untuk melihat paket yang paling
-            relevan sebagai titik awal konsultasi.
+            Jawab tiga pilihan sederhana untuk melihat paket yang paling relevan
+            sebagai titik awal konsultasi.
           </p>
         </div>
 
@@ -575,8 +602,7 @@ function KidsproPathFinder() {
             <FinderStep number="01" title="Berapa usia anak?">
               <div className="grid grid-cols-2 gap-3">
                 {ageChoices.map((choice) => {
-                  const isSelected =
-                    selectedAge === choice.representativeAge;
+                  const isSelected = selectedAge === choice.representativeAge;
 
                   return (
                     <button
@@ -679,10 +705,7 @@ function KidsproPathFinder() {
                             : "border-border bg-surface text-ink hover:-translate-y-0.5 hover:border-accent/35",
                         )}
                       >
-                        <CalendarDays
-                          aria-hidden="true"
-                          className="size-5"
-                        />
+                        <CalendarDays aria-hidden="true" className="size-5" />
                         <span className="mt-3 block text-sm font-extrabold">
                           {frequency}× seminggu
                         </span>
@@ -692,7 +715,8 @@ function KidsproPathFinder() {
                             isSelected ? "text-white/70" : "text-ink-muted",
                           )}
                         >
-                          8 pertemuan · {frequency === 1 ? "2 bulan" : "1 bulan"}
+                          8 pertemuan ·{" "}
+                          {frequency === 1 ? "2 bulan" : "1 bulan"}
                         </span>
                       </button>
                     );
@@ -1172,7 +1196,8 @@ function LearningJourney() {
           </div>
           <p className="max-w-xl text-base leading-relaxed text-white/60 sm:text-lg lg:justify-self-end">
             Jalur pembelajaran membawa anak dari rasa penasaran menuju proses
-            membuat project dan mengembangkan keterampilannya ke level berikutnya.
+            membuat project dan mengembangkan keterampilannya ke level
+            berikutnya.
           </p>
         </div>
 

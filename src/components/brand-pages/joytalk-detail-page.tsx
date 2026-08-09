@@ -1,3 +1,4 @@
+// GAPAI UPDATE: JOYTALK HERO LOGO — 2026-08-09
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import type { LucideIcon } from "lucide-react";
@@ -90,22 +91,15 @@ function JoytalkHero() {
         <div className="mt-8 grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-10">
           <div className="animate-rise min-w-0 lg:col-span-7 lg:pr-6">
             <div className="inline-flex items-center gap-3 rounded-2xl border border-accent/20 bg-surface/90 p-2.5 pr-4 shadow-[var(--shadow-soft)] backdrop-blur-sm">
-              <img
-                src={brand.logo.src}
-                alt={brand.logo.alt}
-                width={brand.logo.width}
-                height={brand.logo.height}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                className="h-12 w-20 object-contain sm:h-14 sm:w-24"
-              />
-
-              <span className="h-8 w-px bg-border" />
+              <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent-ink">
+                <BookOpen aria-hidden="true" className="size-5" />
+              </span>
 
               <span className="text-xs leading-relaxed font-extrabold tracking-[0.12em] text-accent-ink uppercase">
-                Learning English
-                <span className="block text-accent-strong">with joyful</span>
+                Tiga jalur belajar
+                <span className="block text-accent-strong">
+                  untuk usia 3–17 tahun
+                </span>
               </span>
             </div>
 
@@ -165,34 +159,62 @@ function JoytalkHero() {
             />
 
             <figure className="relative overflow-hidden rounded-[2rem] border-8 border-surface bg-surface shadow-[var(--shadow-float)]">
-              <div className="relative aspect-[4/3] overflow-hidden bg-accent-soft">
-                <img
-                  src={brand.image.src}
-                  alt={brand.image.alt}
-                  width={brand.image.width}
-                  height={brand.image.height}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  style={{
-                    objectPosition: brand.image.objectPosition ?? "center",
-                  }}
-                  className="size-full object-cover"
+              <div className="relative flex min-h-[410px] flex-col overflow-hidden bg-gradient-to-br from-surface via-accent-soft/75 to-highlight p-6 sm:min-h-[440px] sm:p-8">
+                <div
+                  aria-hidden="true"
+                  className="absolute -right-16 -top-20 size-52 rounded-full border border-accent/15 bg-accent/5"
                 />
 
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-deep/70 via-transparent to-transparent"
+                  className="absolute -bottom-20 -left-16 size-52 rounded-full bg-brand-yellow/25 blur-2xl"
                 />
 
-                <figcaption className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-6">
-                  <p className="text-xs font-extrabold tracking-[0.14em] text-white/65 uppercase">
-                    Joytalk learning atmosphere
+                <div className="relative flex items-center justify-between gap-4">
+                  <p className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.14em] text-accent-ink uppercase">
+                    <Sparkles aria-hidden="true" className="size-4" />
+                    Joytalk English
                   </p>
 
-                  <p className="mt-2 text-lg leading-snug font-extrabold">
-                    Interaktif, komunikatif, dan disesuaikan dengan usia anak
-                  </p>
+                  <span className="rounded-full border border-accent/15 bg-surface/80 px-3 py-1.5 text-[11px] font-extrabold text-accent-ink shadow-sm">
+                    Learning with joyful
+                  </span>
+                </div>
+
+                <div className="relative flex flex-1 items-center justify-center py-7">
+                  <img
+                    src={brand.logo.src}
+                    alt={brand.logo.alt}
+                    width={brand.logo.width}
+                    height={brand.logo.height}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    className="h-48 w-full max-w-[21rem] object-contain drop-shadow-[0_18px_28px_rgba(95,67,0,0.12)] sm:h-56"
+                  />
+                </div>
+
+                <figcaption className="relative grid grid-cols-3 gap-2.5">
+                  {programOrder.map((programId) => {
+                    const program = joytalkPrograms[programId];
+                    const Icon = programIcons[programId];
+
+                    return (
+                      <a
+                        key={programId}
+                        href={`#${programId}`}
+                        className="group flex min-w-0 flex-col items-center rounded-2xl border border-accent/15 bg-surface/85 px-2 py-3 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:border-accent/35 hover:bg-surface"
+                      >
+                        <span className="grid size-8 place-items-center rounded-xl bg-accent-soft text-accent-ink transition-colors group-hover:bg-accent-strong group-hover:text-white">
+                          <Icon aria-hidden="true" className="size-4" />
+                        </span>
+
+                        <span className="mt-2 text-[11px] leading-tight font-extrabold text-ink sm:text-xs">
+                          {program.navigationLabel}
+                        </span>
+                      </a>
+                    );
+                  })}
                 </figcaption>
               </div>
             </figure>
